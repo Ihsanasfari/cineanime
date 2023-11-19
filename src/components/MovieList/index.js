@@ -7,7 +7,7 @@ const MovieList = ({ api }) => {
         return (
           <Link
             key={data?.mal_id}
-            href={`/${data?.mal_id}`}
+            href={`/movie/${data?.mal_id}`}
             className="flex flex-col gap-2 w-[200px]"
           >
             <div className="relative transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-500">
@@ -22,8 +22,9 @@ const MovieList = ({ api }) => {
                 {data?.score}
               </div>
             </div>
-            <div className="max-w-full  text-sm">
-              {data?.title}&nbsp;({data?.year})
+
+            <div className="max-w-full  text-sm hover:underline">
+              {data?.title}&nbsp; ({data?.year})
             </div>
           </Link>
         );

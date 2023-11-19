@@ -12,6 +12,7 @@ const Page = async ({ params }) => {
     <div className="bg-primary3 px-32 py-12">
       <section>
         <Header title={`Searched for ${keyword}`} />
+
         <MovieList api={searchAnime} />
       </section>
     </div>
