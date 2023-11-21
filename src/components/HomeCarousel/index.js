@@ -42,7 +42,7 @@ export default function HomeCarousel() {
   };
 
   return (
-    <div className="max-w-[1400px] h-[780px] m-auto  w-full relative group">
+    <div className="max-w-[1400px] h-[600px] m-auto  w-full relative group">
       <div
         className="w-full h-full bg-cover bg-center duration-500"
         style={{
