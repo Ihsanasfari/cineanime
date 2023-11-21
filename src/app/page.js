@@ -1,7 +1,6 @@
 import Header from "@/components/AnimeList/Header";
 import AnimeList from "../components/AnimeList";
-import HomeCarousel from "@/components/Carousel";
-import Carousel from "@/components/Carousel";
+import HomeCarousel from "@/components/HomeCarousel";
 
 const Page = async () => {
   const response = await fetch(
@@ -15,9 +14,9 @@ const Page = async () => {
   const ongoingAnime = await response2.json();
 
   return (
-    <div className=" px-32 py-12">
+    <div className="px-32 py-12">
       <section>
-        <Carousel />
+        <HomeCarousel />
       </section>
       <section>
         <Header title="Top Anime" linkHref="/popular" />
