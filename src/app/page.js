@@ -1,5 +1,7 @@
-import Header from "@/components/MovieList/Header";
-import MovieList from "../components/MovieList";
+import Header from "@/components/AnimeList/Header";
+import AnimeList from "../components/AnimeList";
+import HomeCarousel from "@/components/Carousel";
+import Carousel from "@/components/Carousel";
 
 const Page = async () => {
   const response = await fetch(
@@ -7,11 +9,23 @@ const Page = async () => {
   );
   const topAnime = await response.json();
 
+  const response2 = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/seasons/now?limit=14`
+  );
+  const ongoingAnime = await response2.json();
+
   return (
-    <div className="bg-primary3 px-32 py-12">
+    <div className=" px-32 py-12">
       <section>
-        <Header title="Top Anime" linkHref="/populer" />
-        <MovieList api={topAnime} />
+        <Carousel />
+      </section>
+      <section>
+        <Header title="Top Anime" linkHref="/popular" />
+        <AnimeList api={topAnime} />
+      </section>
+      <section>
+        <Header title="Seasons Now Anime" linkHref="/ongoing" />
+        <AnimeList api={ongoingAnime} />
       </section>
     </div>
   );

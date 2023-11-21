@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-const MovieList = ({ api }) => {
+const AnimeList = ({ api }) => {
   return (
     <div className="grid grid-cols-7 justify-items-center gap-x-1 gap-y-4 text-white ">
-      {api.data.map((data) => {
+      {api?.data?.map((data, index) => {
         return (
           <Link
-            key={data?.mal_id}
-            href={`/movie/${data?.mal_id}`}
+            key={index}
+            href={`/anime/${data?.mal_id}`}
             className="flex flex-col gap-2 w-[200px]"
           >
             <div className="relative transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-500">
@@ -24,7 +24,7 @@ const MovieList = ({ api }) => {
             </div>
 
             <div className="max-w-full  text-sm hover:underline">
-              {data?.title}&nbsp; ({data?.year})
+              {data?.title}&nbsp;{data?.year ? `(${data?.year})` : null}
             </div>
           </Link>
         );
@@ -33,4 +33,4 @@ const MovieList = ({ api }) => {
   );
 };
 
-export default MovieList;
+export default AnimeList;

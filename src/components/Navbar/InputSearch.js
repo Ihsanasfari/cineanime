@@ -10,8 +10,11 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     const keyword = searchRef.current.value;
-
-    router.push(`/search/${keyword}`);
+    if (!keyword) {
+      return;
+    } else {
+      router.push(`/search/${keyword}`);
+    }
   };
 
   return (
@@ -19,7 +22,7 @@ const InputSearch = () => {
       <form onSubmit={handleSearch}>
         <input
           className="rounded-lg p-2 text-primary3 focus:border-none"
-          placeholder="Seach Anime Here"
+          placeholder="Search Anime Here"
           ref={searchRef}
         />
       </form>
